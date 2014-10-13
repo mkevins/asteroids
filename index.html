@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="lib/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/movingOjbect.js"></script>
+    <script src="lib/asteroid.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/game.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/gameView.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600">
+
+    </canvas>
+    <script type="text/javascript">
+    var context = document.getElementById("canvas").getContext("2d");
+    var game = new Asteroids.Game();
+    var gameView = new Asteroids.GameView(game, context);
+    gameView.start();
+    </script>
+  </body>
+</html>

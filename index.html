@@ -9,6 +9,16 @@
     <script src="lib/asteroid.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/game.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/gameView.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css" media="screen">
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-image: url('./assets/andromeda.jpg');
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+    }
+    </style>
   </head>
   <body>
     <canvas id="canvas" width="800" height="600">
@@ -19,6 +29,19 @@
     var game = new Asteroids.Game();
     var gameView = new Asteroids.GameView(game, context);
     gameView.start();
+    window.onresize = function (event) {
+      console.log("window resized");
+      var width = event.target.innerWidth;
+      var height = event.target.innerHeight;
+      console.log("width: " + width);
+      console.log("height: " + height);
+
+      context.canvas.width = width;
+      context.canvas.height = height;
+      game.dimX = width;
+      game.dimY = height;
+    };
+    window.dispatchEvent(new Event('resize'));
     </script>
   </body>
 </html>

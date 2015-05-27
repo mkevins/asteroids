@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="keymaster.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/utils.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/movingOjbect.js"></script>
@@ -25,28 +26,30 @@
 
     </canvas>
     <script type="text/javascript">
-    var context = document.getElementById("canvas").getContext("2d");
-    var game = new Asteroids.Game({
-      dimX: window.innerWidth,
-      dimY: window.innerHeight,
-      livesCount: 3
-    });
-    var gameView = new Asteroids.GameView(game, context);
-    gameView.start();
-    // TODO: throttle resize events
-    window.onresize = function (event) {
-      console.log("window resized");
-      var width = event.target.innerWidth;
-      var height = event.target.innerHeight;
-      console.log("width: " + width);
-      console.log("height: " + height);
+    $(function () {
+      var context = $('#canvas')[0].getContext("2d");
+      var game = new Asteroids.Game({
+        dimX: window.innerWidth,
+        dimY: window.innerHeight,
+        livesCount: 3
+      });
+      var gameView = new Asteroids.GameView(game, context);
+      gameView.start();
+      // TODO: throttle resize events
+      $(window).resize(function (event) {
+        console.log("window resized");
+        var width = event.target.innerWidth;
+        var height = event.target.innerHeight;
+        console.log("width: " + width);
+        console.log("height: " + height);
 
-      context.canvas.width = width;
-      context.canvas.height = height;
-      game.dimX = width;
-      game.dimY = height;
-    };
-    window.dispatchEvent(new Event('resize'));
+        context.canvas.width = width;
+        context.canvas.height = height;
+        game.dimX = width;
+        game.dimY = height;
+      });
+      $(window).resize();
+    });
     </script>
   </body>
 </html>

@@ -26,9 +26,14 @@
     </canvas>
     <script type="text/javascript">
     var context = document.getElementById("canvas").getContext("2d");
-    var game = new Asteroids.Game(window.innerWidth, window.innerHeight);
+    var game = new Asteroids.Game({
+      dimX: window.innerWidth,
+      dimY: window.innerHeight,
+      livesCount: 3
+    });
     var gameView = new Asteroids.GameView(game, context);
     gameView.start();
+    // TODO: throttle resize events
     window.onresize = function (event) {
       console.log("window resized");
       var width = event.target.innerWidth;

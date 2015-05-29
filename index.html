@@ -55,11 +55,17 @@
       });
       var gameView = new Asteroids.GameView(game, context);
       gameView.start();
-      // TODO: throttle resize events
+
+      var resizeTimeoutId;
       $(window).resize(function (event) {
+        clearTimeout(resizeTimeoutId);
+        resizeTimeoutId = setTimeout(throttledResize, 100);
+      });
+
+      function throttledResize (event) {
         console.log("window resized");
-        var width = event.target.innerWidth;
-        var height = event.target.innerHeight;
+        var width = $(window).width();
+        var height = $(window).height();;
         console.log("width: " + width);
         console.log("height: " + height);
 
@@ -67,7 +73,8 @@
         context.canvas.height = height;
         game.dimX = width;
         game.dimY = height;
-      });
+      }
+
       $(window).resize();
     });
     </script>

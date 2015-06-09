@@ -10,40 +10,10 @@
     <script src="lib/asteroid.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/game.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/gameView.js" type="text/javascript" charset="utf-8"></script>
-    <style type="text/css" media="screen">
-    body {
-      margin: 0;
-      overflow: hidden;
-      background-image: url('./assets/andromeda.jpg');
-      background-size: cover;
-      background-position-x: center;
-      background-position-y: center;
-    }
-    .modal-wrapper {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .modal {
-      position: absolute;
-      display: inline-block;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70%;
-      height: 70%;
-      background: white;
-      font-size: 48px;
-      font-weight: bold;
-      text-align: center;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <canvas id="canvas" width="800" height="600">
-
-    </canvas>
+    <canvas id="canvas" width="800" height="600"></canvas>
     <script type="text/javascript">
     $(function () {
       var context = $('#canvas')[0].getContext("2d");
@@ -62,7 +32,7 @@
       });
 
       function throttledResize (event) {
-        console.log("window resized");
+        //console.log("window resized");
         var width = $(window).width();
         var height = $(window).height();;
         console.log("width: " + width);

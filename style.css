@@ -1,18 +1,36 @@
+/* reset */
+
+html, body, header, section, form, ul, li, p, h1, h2, h3, a, img {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+}
+
+
 body {
   margin: 0;
   overflow: hidden;
-  background-image: url('./assets/andromeda.jpg');
+  background: url('./assets/andromeda.jpg') center center no-repeat;
   background-size: cover;
-  background-position-x: center;
-  background-position-y: center;
 }
 
 .modal-wrapper {
   position: absolute;
-  display: none;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
+}
+
+.start-game {
+}
+
+
+.game-over.modal {
+  display: none;
 }
 
 .modal {
@@ -24,27 +42,33 @@ body {
   border: 3px solid white;
   border-radius: 4px;
   padding: 20px;
-  /*
-  width: 70%;
-  height: 70%;
-  */
   color: #0f0;
   background: #111;
-  font-size: 48px;
+  font-size: 24px;
   font-family: monospace;
-  font-weight: bold;
   text-align: center;
 }
 
-.replay {
+.modal h1 {
+  padding-bottom: 20px;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.modal-text {
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.button {
   display: inline-block;
-  bottom: 0;
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #0f0;
   cursor: pointer;
 }
 
-.replay:hover {
+
+.button:hover {
   background: #222;
 }

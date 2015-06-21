@@ -28,6 +28,7 @@ $(function () {
       context.canvas.height = height;
       game.dimX = width;
       game.dimY = height;
+      Asteroids.Vector.setDimensions(width, height);
     }
 
     $(window).resize();

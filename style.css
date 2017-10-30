@@ -28,6 +28,9 @@ body {
 .start-game {
 }
 
+.pause.modal {
+  display: none;
+}
 
 .game-over.modal {
   display: none;

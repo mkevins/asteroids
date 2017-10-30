@@ -12,6 +12,7 @@ $(function () {
     gameView.start();
 
     var resizeTimeoutId;
+
     $(window).resize(function (event) {
       clearTimeout(resizeTimeoutId);
       resizeTimeoutId = setTimeout(throttledResize, 100);
@@ -29,6 +30,7 @@ $(function () {
       game.dimX = width;
       game.dimY = height;
       Asteroids.Vector.setDimensions(width, height);
+			gameView.game.draw(gameView.context);
     }
 
     $(window).resize();

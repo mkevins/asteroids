@@ -14,8 +14,11 @@ html, body, header, section, form, ul, li, p, h1, h2, h3, a, img {
 body {
   margin: 0;
   overflow: hidden;
-  background: url('./assets/andromeda.jpg') center center no-repeat;
+	background-image: url('./assets/potw1809a.jpg');
+	background-color: #111;
   background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .modal-wrapper {

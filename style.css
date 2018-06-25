@@ -14,6 +14,12 @@ html, body, header, section, form, ul, li, p, h1, h2, h3, a, img {
 body {
   margin: 0;
   overflow: hidden;
+	background-color: #000;
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
 	background-image: url('./assets/potw1809a.jpg');
 	background-color: #111;
   background-size: cover;

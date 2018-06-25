@@ -4,8 +4,10 @@ $(function () {
     $('.start-game').hide();
     var context = $('#canvas')[0].getContext("2d");
     var game = new Asteroids.Game({
+			/*
       dimX: window.innerWidth,
       dimY: window.innerHeight,
+			*/
       livesCount: 3
     });
     var gameView = new Asteroids.GameView(game, context);
@@ -25,11 +27,17 @@ $(function () {
       console.log("width: " + width);
       console.log("height: " + height);
 
-      context.canvas.width = width;
-      context.canvas.height = height;
-      game.dimX = width;
-      game.dimY = height;
-      Asteroids.Vector.setDimensions(width, height);
+			// TODO: refactor view and game size (clean up duplicate data)
+			// convert between screen and game coordinates (screen / mouse input)
+
+
+      context.canvas.width = Math.min(width, (16 / 9) * height);
+      context.canvas.height = Math.min(height, (9 / 16) * width);
+			/*
+      game.dimX = 1920;
+      game.dimY = 1080;
+			*/
+      Asteroids.Vector.setDimensions(1920, 1080);
 			gameView.game.draw(gameView.context);
     }
 
